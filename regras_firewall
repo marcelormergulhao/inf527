@@ -1,0 +1,24 @@
+Firewall
+
+Padrão -> negar tudo
+Negar bogons
+Anti-spoofing
+
+Para cada serviço da DMZ -> permitir passagem da internet para a porta específica
+Web
+Acesso Remoto
+
+Para cada serviço da rede de servidores, liberar entre DMZ e rede de servidores:
+NTP
+DNS
+NAS
+BD
+
+Servidores não falam com gerência
+
+Lembretes Sidney
+-ICMP liberado internamente
+-Se usar NAT internamente, lembrar das rotas internas
+-IPv6 também
+
+

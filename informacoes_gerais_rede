@@ -1,0 +1,26 @@
+Rede para poder interligar com outros grupos:
+10.X.0.0/24
+
+Firewall/Router - OpenBSD
+
+---
+
+Rede de servidores
+NTP
+DNS
+NAS
+DHCP
+BD
+
+---
+
+DMZ
+Web
+Acesso remoto
+
+---
+
+Rede Gerência
+Netflow
+Log
+Cacti
