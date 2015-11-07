@@ -1,32 +1,38 @@
 Rede para poder interligar com outros grupos:
 10.X.0.0/24
 
-Firewall/Router - OpenBSD
+Firewall/Router - OpenBSD - Tiago
+pf
+pflow
+pfsync
 
 ---
 
-Rede de servidores
+Rede de servidores - Marcelo
 NTP
-DNS
-NAS
+DNS - Unbound/NSD
+NAS - OpenNas/FreeNas
 DHCP
-BD
+BD - ?
+smtp - postfix
+ldap - openldap com tls
 
 ---
 
 DMZ
-Web
-Acesso remoto
+Web - nginx
+Acesso remoto - ssh/openvpn
+smtp - xeans
 
 ---
 
 Rede Gerência
 Netflow
 Log
-Cacti
-
+Cacti com alertas
 
 ----
 
+Rede Clientes
 -Clientes com home em NFS no NAS
 -Acesso LDAP 
