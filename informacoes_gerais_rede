@@ -11,7 +11,7 @@ pfsync
 Rede de servidores - Marcelo
 NTP
 DNS - Unbound/NSD
-NAS - OpenNas/FreeNas
+NAS - OpenNas/FreeNas - NFS
 DHCP
 BD - ?
 smtp - postfix
@@ -19,14 +19,14 @@ ldap - openldap com tls
 
 ---
 
-DMZ
+DMZ - Tiago
 Web - nginx
 Acesso remoto - ssh/openvpn
 smtp - xeans
 
 ---
 
-Rede Gerência
+Rede Gerência - Mario
 Netflow
 Log
 Cacti com alertas
