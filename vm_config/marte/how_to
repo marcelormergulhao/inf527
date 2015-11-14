@@ -1,0 +1,10 @@
+#Configuração de rede inicial
+scp marte/interfaces base@marte:/etc/network/interfaces
+scp marte/hosts base@marte:/etc/hosts
+scp marte/hostname base@marte:/etc/hostname
+
+#Instalação do NTP
+sudo apt-get update
+sudo apt-get install ntp
+
+scp -r marte/ntp.conf base@marte:/etc/ntp.conf
