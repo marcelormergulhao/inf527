@@ -10,9 +10,9 @@ pfsync
 
 Rede de servidores - Marcelo
 NTP
-DNS - Unbound/NSD
+DNS recursivo - Unbound
 NAS - OpenNas/FreeNas - NFS
-DHCP
+DHCP - isc-dhcp-server
 BD - ?
 smtp - postfix
 ldap - openldap com tls
@@ -20,6 +20,7 @@ ldap - openldap com tls
 ---
 
 DMZ - Tiago
+DNS autoritativo - NSD
 Web - nginx
 Acesso remoto - ssh/openvpn
 smtp - xeans
@@ -36,3 +37,7 @@ Cacti com alertas
 Rede Clientes
 -Clientes com home em NFS no NAS
 -Acesso LDAP 
+
+
+
+TEM QUE TER UM SERVIDOR COM CHECAGEM DE INTEGRIDADE DE ARQUIVOS
