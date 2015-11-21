@@ -14,16 +14,15 @@ DNS recursivo - Unbound
 NAS - OpenNas/FreeNas - NFS
 DHCP - isc-dhcp-server
 BD - ?
-smtp - postfix
 ldap - openldap com tls
+nginx - webserver
 
 ---
 
 DMZ - Tiago
 DNS autoritativo - NSD
-Web - nginx
+Web proxy - nginx
 Acesso remoto - ssh/openvpn
-smtp - xeans
 
 ---
 
