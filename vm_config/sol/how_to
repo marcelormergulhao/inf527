@@ -29,6 +29,11 @@ Copiar o pf.conf para /etc/pf.conf
 
 Copiar todos os hostname.* para /etc/ (estes arquivos são para configurar as interfaces de rede).
 
+Adicionando rota default via dhcp:
+# rm /etc/mygate
+
+Copiar sysctl.conf /etc
+
 ------------------------------------------------------------------------------
 
 Instruções:
