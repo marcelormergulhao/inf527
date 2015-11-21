@@ -47,4 +47,10 @@ Para habiltar o firewall:
 Para verificar os logs do firewall:
 # tcpdump -nettti pflog0
 
+Verificar se o status do firewall:
+# pfctl -si
+
+Verificar os estados no firewall:
+# pfctl -ss
+
 ------------------------------------------------------------------------------
