@@ -1,0 +1,21 @@
+Criando interfaces na vm SOL:
+
+#VBoxManage.exe modifyvm "sol" --nic5 intnet
+#VBoxManage.exe modifyvm "sol" --nic5 intnet
+
+#VBoxManage.exe modifyvm "sol" --intnet5 "rede_servidores"
+#VBoxManage.exe modifyvm "sol" --intnet6 "rede_gerencia"
+
+#VBoxManage.exe list intnets
+Name:        rede_dmz
+Name:        rede_gerencia
+Name:        rede_interna
+Name:        rede_servidores
+
+NIC 1:           MAC: 080027E50204, Attachment: NAT, Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot riority: 0, Promisc Policy: deny, Bandwidth group: none
+NIC 1 Settings:  MTU: 0, Socket (send: 64, receive: 64), TCP Window (send:64, receive: 64)
+NIC 2:           MAC: 08002760E035, Attachment: Host-only Interface 'VirtualBoxHost-Only Ethernet Adapter', Cable connected: on, Trace: off (ile: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
+NIC 3:           MAC: 080027AE64D6, Attachment: Internal Network 'rede_interna', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
+NIC 4:           MAC: 080027E78442, Attachment: Internal Network 'rede_dmz', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
+NIC 5:           MAC: 0800276855B2, Attachment: Internal Network 'rede_servidores', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
+NIC 6:           MAC: 08002728D0B0, Attachment: Internal Network 'rede_gerencia', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
