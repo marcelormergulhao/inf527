@@ -1,12 +1,13 @@
+------------------------------------------------------------------------------
 Criando interfaces na vm SOL:
 
-#VBoxManage.exe modifyvm "sol" --nic5 intnet
-#VBoxManage.exe modifyvm "sol" --nic5 intnet
+# VBoxManage modifyvm "sol" --nic5 intnet
+# VBoxManage modifyvm "sol" --nic5 intnet
 
-#VBoxManage.exe modifyvm "sol" --intnet5 "rede_servidores"
-#VBoxManage.exe modifyvm "sol" --intnet6 "rede_gerencia"
+# VBoxManage modifyvm "sol" --intnet5 "rede_servidores"
+# VBoxManage modifyvm "sol" --intnet6 "rede_gerencia"
 
-#VBoxManage.exe list intnets
+# VBoxManage list intnets
 Name:        rede_dmz
 Name:        rede_gerencia
 Name:        rede_interna
@@ -19,3 +20,26 @@ NIC 3:           MAC: 080027AE64D6, Attachment: Internal Network 'rede_interna',
 NIC 4:           MAC: 080027E78442, Attachment: Internal Network 'rede_dmz', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
 NIC 5:           MAC: 0800276855B2, Attachment: Internal Network 'rede_servidores', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
 NIC 6:           MAC: 08002728D0B0, Attachment: Internal Network 'rede_gerencia', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
+
+------------------------------------------------------------------------------
+
+Arquivos de configuração:
+
+Copiar o pf.conf para /etc/pf.conf
+
+Copiar todos os hostname.* para /etc/ (estes arquivos são para configurar as interfaces de rede).
+
+------------------------------------------------------------------------------
+
+Instruções:
+
+Para desabilitar o firewall:
+# pfctl -d
+
+Para habiltar o firewall:
+# pfctl -e
+
+Para verificar os logs do firewall:
+# tcpdump -nettti pflog0
+
+------------------------------------------------------------------------------
