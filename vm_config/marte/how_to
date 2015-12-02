@@ -21,5 +21,47 @@ scp marte/dhcp* base@marte:/etc/dhcp/
 sudo apt-get install postfix
 scp marte/*.cf base@marte:/etc/postfix/
 
-#Instalação do OpenLDAP
-#sudo apt-get install openldap
+########################################
+#Instalação do OpenLDAP e pacotes de SSL
+sudo apt-get install openldap gnutls-bin ssl-cert
+
+#PHPLDAPADMIN
+apt-get install phpldapadmin
+scp config.php /etc/phpldapadmin/config.php
+
+IMPORTAR O LDIF DA BASE COM O PHPLDAPADMIN
+scp export.ldif base@marte:
+abrir navegador
+localhost/phpldapadmin/
+Login com senha de admin
+Import
+
+#Fazer como root
+#Gera chave privada
+sh -c "certtool --generate-privkey > /etc/ssl/private/cakey.pem"
+#Cria template de cainfo
+scp ca.info base@marte:/etc/ssl/ca.info
+
+#Cria certificado auto-assinado de CA
+certtool --generate-self-signed --load-privkey /etc/ssl/private/cakey.pem  --template /etc/ssl/ca.info --outfile /etc/ssl/certs/cacert.pem
+#Cria chave privada
+certtool --generate-privkey --bits 1024 --outfile /etc/ssl/private/marte_slapd_key.pem
+#Cria template de certificado do servidor
+scp marte.info base@marte:/etc/ssl/marte.info
+
+#Cria certificado do servidor
+certtool --generate-certificate --load-privkey /etc/ssl/private/marte_slapd_key.pem --load-ca-certificate /etc/ssl/certs/cacert.pem --load-ca-privkey /etc/ssl/private/cakey.pem --template /etc/ssl/marte.info --outfile /etc/ssl/certs/marte_slapd_cert.pem
+
+#Executa arquivo ldif na base do LDAP
+scp tls.ldif base@marte:
+ldapmodify -Y EXTERNAL -H ldapi:/// -f /home/base/tls.ldif
+
+#Acerta permissoes
+adduser openldap ssl-cert
+chgrp ssl-cert /etc/ssl/private/marte_slapd_key.pem
+chmod g+r /etc/ssl/private/marte_slapd_key.pem
+chmod o-r /etc/ssl/private/marte_slapd_key.pem
+
+TESTAR SE O SERVIDOR SOBE -> SE NÃO SUBIR PODE SER PERMISSÕES NO ARQUIVO /etc/apparmor.d/usr.sbin.slapd
+
+##############################################

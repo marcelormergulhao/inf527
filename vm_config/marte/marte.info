@@ -1,0 +1,6 @@
+organization = inf527
+cn = campinas
+tls_www_server
+encryption_key
+signing_key
+expiration_days = 3650
