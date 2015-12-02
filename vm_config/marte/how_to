@@ -17,6 +17,11 @@ scp marte/unbound.conf base@marte:/etc/unbound/unbound.conf
 sudo apt-get install isc-dhcp-server
 scp marte/dhcp* base@marte:/etc/dhcp/
 
+INICIAR O DHCPv6 com 
+/usr/sbin/dhcpd -q -6 -cf /etc/dhcp/dhcp6.conf
+CASO NAO INICIE NO BOOT
+scp marte/rc.local base@marte:/etc/rc.local
+
 #Instalação do postfix
 sudo apt-get install postfix
 scp marte/*.cf base@marte:/etc/postfix/
