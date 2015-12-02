@@ -1,0 +1,35 @@
+#instalação cacti
+sudo apt-get update
+sudo apt-get install cacti
+
+#instalação coletor de fluxo
+sudo apt-get install flow-capture
+sudo vim /etc/flow-tools/flow-capture.conf
+
+#instalação FlowView
+sudo wget http://docs.cacti.net/_media/plugin:flowview-v1.1-1.tgz
+sudo mv /usr/share/cacti/site/plugins
+sudo tar -vzxf flowview-v1.1-1.tgz
+
+#Vá ate o console do Cacti
+Configuration>Plugin Management
+enable Flowview
+
+#intalação ELK
+#Java
+sudo apt-get install default-jre
+
+#kibana
+sudo wget https://download.elastic.co/kibana/kibana/kibana-4.1.0-linux-x64.tar.gz
+sudo tar -vzxf kibana-4.1.0-linux-x64.tar.gz
+sudo mv kibana-4.1.0-linux-x64.tar.gz kibana
+
+#logstash
+sudo wget https://download.elastic.co/logstash/logstash/logstash-2.1.0.tar.gz
+sudo tar -vzxf logstash-2.1.0.tar.gz
+sudo mv logstash-2.1.0.tar.gz logstash
+
+#Elasticsearch
+sudo wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.1.0/elasticsearch-2.1.0.tar.gz
+sudo tar -vzxf elasticsearch-2.1.0.tar.gz
+sudo mv elasticsearch-2.1.0.tar.gz elasticsearch
