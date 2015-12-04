@@ -26,6 +26,26 @@ scp marte/rc.local base@marte:/etc/rc.local
 sudo apt-get install postfix
 scp marte/*.cf base@marte:/etc/postfix/
 
+#Instalacao LEMP
+#NGINX
+sudo apt-get install nginx
+scp default base@marte:/etc/nginx/sites-enabled/default
+sudo mkdir /etc/nginx/ssl
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
+(TEM QUE RESPONDER PERGUNTAS DO CERTIFICADO)
+
+
+#MySQL
+sudo apt-get install mysql-server
+sudo mysql_install_db
+sudo mysql_secure_installation
+
+#PHP
+sudo apt-get install php5-fpm php5-mysql
+scp php.ini base@marte:/etc/php5/fpm/php.ini
+sudo service php5-fpm restart
+scp info.php base@marte:/usr/share/nginx/html/info.php
+
 ########################################
 #Instalação do OpenLDAP e pacotes de SSL
 sudo apt-get install openldap gnutls-bin ssl-cert
@@ -70,3 +90,4 @@ chmod o-r /etc/ssl/private/marte_slapd_key.pem
 TESTAR SE O SERVIDOR SOBE -> SE NÃO SUBIR PODE SER PERMISSÕES NO ARQUIVO /etc/apparmor.d/usr.sbin.slapd
 
 ##############################################
+
