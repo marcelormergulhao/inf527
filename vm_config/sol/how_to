@@ -57,19 +57,17 @@ Verificar os estados no firewall:
 
 Baixar para o servidor:
 
-http://openbsd.c3sl.ufpr.br/pub/OpenBSD/5.8/packages/i386/isc-dhcp-server-4.3.2p0.tgz
-
-http://openbsd.c3sl.ufpr.br/pub/OpenBSD/5.8/packages/amd64/wide-dhcpv6-20080615p3.tgz
+http://openbsd.c3sl.ufpr.br/pub/OpenBSD/5.8/packages/i386/wide-dhcpv6-20080615p3.tgz
 
 Instalar o pacote:
 
-# pkg_add isc-dhcp-server-4.3.2p0.tgz
+# pkg_add  wide-dhcpv6-20080615p3.tgz
 
 Criar o arquivo /etc/rc.local com o conteudo:
 
 /usr/local/sbin/dhcrelay -i em2 10.9.2.1
 /usr/local/sbin/dhcrelay -i em4 10.9.2.1
-/usr/local/sbin/dhcrelay -6 -I -l em2 -u em4
+/usr/local/sbin/dhcp6relay -r em4 -s fc00:10:9:2::1 em2
 
 Dar permissão de execução:
 
