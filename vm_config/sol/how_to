@@ -59,6 +59,8 @@ Baixar para o servidor:
 
 http://openbsd.c3sl.ufpr.br/pub/OpenBSD/5.8/packages/i386/isc-dhcp-server-4.3.2p0.tgz
 
+http://openbsd.c3sl.ufpr.br/pub/OpenBSD/5.8/packages/amd64/wide-dhcpv6-20080615p3.tgz
+
 Instalar o pacote:
 
 # pkg_add isc-dhcp-server-4.3.2p0.tgz
