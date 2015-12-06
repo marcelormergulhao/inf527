@@ -34,3 +34,41 @@ ps. se o dns não estiver resolvendo os fqdn só trocar os nomes pelo ip na conf
 
 
 -------------------------------------------
+
+Instale os pacotes necessarios:
+
+# apt-get install openvpn-auth-ldap easy-rsa openvpn
+
+Copie a configuração do lado do servidor:
+
+[local]# scp openvpnf.conf base@venus.inf528.org:~/
+[local]# scp auth-ldap.conf base@venus.inf528.org:~/
+# cp openvpn.conf /etc/openvpn
+
+Edite o ldap.conf para os parâmtos do server ldap:
+# vi auth-ldap.conf
+# cp auth-ldap.conf /etc/openvpn
+
+Gerar certificados:
+
+# cd /usr/share/easy-rsa
+
+Editei as variaveis para criação dos certs:
+
+# vi vars
+# . ./vars
+# ./clean-all
+# ./clean-all
+# ./pkitool --initca
+# ./pkitool --server server
+# ./build-dh 
+
+Copie para a pasta do openvpn:
+
+# cp keys/{ca.crt,ca.key,server.crt,server.key,dh2048.pem} /etc/openvpn/ 
+			
+No lado do cliente:
+
+[local]# scp unicamp.ovpn base@cliente.inf528.org:~/
+[venus]# scp ca.crt base@cliente.inf528.org:~/
+# openvpn --config unicamp.ovpn
