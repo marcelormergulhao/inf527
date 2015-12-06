@@ -12,3 +12,25 @@ sudo apt-get install nsd
 sudo apt-get remove bind9
 
 scp -r venus/nsd/ base@venus:/etc/
+
+------------------------------------------
+
+nginx as proxy
+
+criar cert ssl:
+
+# cd /etc/nginx
+# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/cert.key -out /etc/nginx/cert.crt
+
+subir a configuração do nginx:
+
+[local]# scp default base@venus.inf528.org:~/
+[venus]# cp default /etc/nginx/sites-enabled/
+
+iniciar o processo:
+# sevice nginx start
+
+ps. se o dns não estiver resolvendo os fqdn só trocar os nomes pelo ip na conf do nginx.
+
+
+-------------------------------------------
