@@ -1,0 +1,3 @@
+Edite o iptables generic para as portas necessárias no servidor e restaure as configurações com:
+
+# iptables-restore < iptables-generic
