@@ -1,0 +1,17 @@
+Checagens a fazer nas VMs
+
+-> Senhas fortes (usuário base e outros)
+-> Hash LDAP forte
+-> LDAP com TLS apenas
+-> Web com HTTPS
+
+-> DNS
+
+-> NTP ?
+
+-> Log ?
+
+-> Mail ?
+
+-> Acesso remoto?
+
