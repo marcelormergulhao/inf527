@@ -5,11 +5,11 @@ scp venus/hostname base@venus:/etc/hostname
 
 #Instalação do DNS Autoritativo
 sudo useradd -r nsd
-sudo nsd-control-setup
 
 sudo apt-get update
 sudo apt-get install nsd
 sudo apt-get remove bind9
+sudo nsd-control-setup
 
 scp -r venus/nsd/ base@venus:/etc/
 

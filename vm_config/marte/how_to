@@ -48,11 +48,12 @@ scp info.php base@marte:/usr/share/nginx/html/info.php
 
 ########################################
 #Instalação do OpenLDAP e pacotes de SSL
-sudo apt-get install openldap gnutls-bin ssl-cert
+sudo apt-get install slapd gnutls-bin ssl-cert
 
 #PHPLDAPADMIN
 apt-get install phpldapadmin
 scp config.php /etc/phpldapadmin/config.php
+sudo chmod 640 /etc/phpldapadmin/config.php
 
 IMPORTAR O LDIF DA BASE COM O PHPLDAPADMIN
 scp export.ldif base@marte:
